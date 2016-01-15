@@ -1,0 +1,23 @@
+{
+  "name": "hapi-iam-check-permissions",
+  "version": "0.0.1",
+  "engines": {
+    "node": "4.2.2"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "boom": "^3.0.0",
+    "hapi": "^11.1.1",
+    "http-as-promised": "^1.0.0",
+    "url": "^0.10.3"
+  },
+  "devDependencies": {
+    "chai": "2.3.0",
+    "hapi-auth-basic": "^4.1.0",
+    "inject-then": "^2.0.4",
+    "mocha": "2.2.5"
+  }
+}
