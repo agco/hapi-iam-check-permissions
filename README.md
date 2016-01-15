@@ -1,0 +1,1 @@
+# hapi-iam-check-permissions
