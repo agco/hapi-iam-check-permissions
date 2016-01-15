@@ -4,6 +4,7 @@
   "engines": {
     "node": "4.2.2"
   },
+  "main": "lib/",
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
