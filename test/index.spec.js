@@ -12,7 +12,10 @@ describe('hapi-iam-check-permissions', function () {
         return new Promise((resolve) => {
             const plugins = [
                 {register: require('hapi-auth-basic')},
-                {register: require('../lib/index'), options: {applicationId: appId, evaluatePermissionsUrl: evaluatePermissionsUrl}},
+                {
+                    register: require('../lib/index'),
+                    options: {applicationId: appId, evaluatePermissionsUrl: evaluatePermissionsUrl, permissionsToSkip: ['ping.get']}
+                },
                 {register: require('inject-then')}
             ]
             var server = new Hapi.Server()
@@ -35,6 +38,11 @@ describe('hapi-iam-check-permissions', function () {
                         method: 'get',
                         path: '/hello',
                         handler: (req, reply)=>reply('world')
+                    })
+                    server.route({
+                        method: 'get',
+                        path: '/ping',
+                        handler: (req, reply)=>reply('pong')
                     })
                     server.route({
                         method: 'post',
@@ -86,6 +94,14 @@ describe('hapi-iam-check-permissions', function () {
                         expect(res.statusCode).to.equal(403)
                     })
                 })
+                describe('and accesses publicly open route', function () {
+                    it('should respond with 200', function () {
+                        return app1.injectThen({url: '/ping', headers: {authorization: 'Basic dXNlcjpwYXNzd29yZA=='}}).then(function (res) {
+                            expect(res.statusCode).to.equal(200)
+                            expect(res.payload).to.equal('pong')
+                        })
+                    })
+                });
             })
         })
     }
