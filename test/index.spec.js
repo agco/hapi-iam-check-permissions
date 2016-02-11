@@ -80,6 +80,12 @@ describe('hapi-iam-check-permissions', function () {
         })
 
         describe('when user is authenticated', function () {
+            it('should not propagete headers other than authoriation', function () {
+                return app1.injectThen({url: '/hello', headers: {authorization: 'Basic YWRtaW46cGFzc3dvcmQ=', 'accept-encoding': 'gzip, deflate, sdch'}})
+                    .then(function (res) {
+                        expect(res.statusCode).to.equal(200)
+                    })
+            });
             describe('and has permission', function () {
                 it('should allow accessing the route', function () {
                     return app1.injectThen({url: '/hello', headers: {authorization: 'Basic YWRtaW46cGFzc3dvcmQ='}}).then(function (res) {
