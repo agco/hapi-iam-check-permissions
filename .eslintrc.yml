@@ -1,0 +1,17 @@
+extends: airbnb-base
+
+plugins:
+  - import
+  - perf-standard
+  - json
+env:
+  mocha: true
+
+rules:
+  perf-standard/no-instanceof-guard: 2
+  perf-standard/no-self-in-constructor: 2
+  perf-standard/check-function-inline: 1
+  comma-dangle: 0
+  no-underscore-dangle: [2, { allow: ["_id"] }]
+  max-len: ["error", 120]
+  no-param-reassign: 0

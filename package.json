@@ -1,24 +1,33 @@
 {
   "name": "hapi-iam-check-permissions",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Permissions Management with AGCO IAM for Hapi",
   "engines": {
-    "node": "4.2.2"
+    "node": ">=7.6"
   },
-  "main": "lib/",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha ./test"
   },
   "dependencies": {
-    "bluebird": "^2.9.24",
-    "boom": "^3.0.0",
-    "hapi": "^11.1.1",
-    "http-as-promised": "^1.0.0",
-    "url": "^0.10.3"
+    "bluebird": "3.5.1",
+    "boom": "7.1.1",
+    "redis": "2.8.0",
+    "request": "2.83.0",
+    "request-promise": "4.2.2",
+    "url": "0.11.0"
   },
   "devDependencies": {
-    "chai": "2.3.0",
-    "hapi-auth-basic": "^4.1.0",
-    "inject-then": "^2.0.4",
-    "mocha": "2.2.5"
+    "chai": "4.1.2",
+    "dirty-chai": "2.0.1",
+    "eslint": "4.18.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-json": "1.2.0",
+    "eslint-plugin-perf-standard": "1.0.3",
+    "hapi": "17.2.0",
+    "hapi-auth-basic": "5.0.0",
+    "mocha": "5.0.1",
+    "nock": "9.2.3"
   }
 }
