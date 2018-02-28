@@ -1,4 +1,5 @@
+-t 5000
+--require=./test/mochaBase
 --ui bdd
 --reporter spec
---recursive
-test/**/*.spec.js
+--exit
